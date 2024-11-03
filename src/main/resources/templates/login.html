@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <script th:src="@{/js/script.js}"></script>
+    <style th:insert="fragments.html::style"></style></head>
+<body>
+
+<header th:insert="fragments.html::header"></header>
+
+<h1>Please enter your login credentials</h1>
+
+<form method="post" th:action="@{/login}">
+
+    <div>
+        Username: <input type="text" name="username"><br>
+        Password: <input type="password" name="password"><br>
+        <input type="submit" value="Login"><br>
+    </div>
+    <div th:if="${param.error}">
+        <div class="error">
+            Invalid username or password.
+        </div>
+    </div>
+    <div th:if="${param.logout}">
+        <div class="error">
+            You have been logged out.
+        </div>
+    </div>
+</form>
+
+<p><a th:href="@{/}">Back to Home Page</a></p>
+
+<footer th:insert="fragments.html::footer"></footer>
+
+</body>
+</html>

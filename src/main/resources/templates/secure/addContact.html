@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Contact</title>
+    <script th:src="@{/js/script.js}"></script>
+    <style th:insert="fragments.html::style"></style></head>
+<body>
+
+<header th:insert="fragments.html::header"></header>
+
+<h1>Add New Contact</h1>
+
+<form th:object="${contact}" method="post" action="#" th:action="@{addContact}">
+    <input type="hidden" th:field="*{id}"><br>
+    Name: <input type="text" th:field="*{name}" required><br>
+    Phone Number: <input type="tel" th:field="*{phone}" required pattern="[0-9]{10}"><br>
+    Address: <input type="text" th:field="*{address}" required><br>
+    Email: <input type="email" th:field="*{email}" required><br>
+    Role:   <select th:field="*{role}" required>
+                <option th:each="r : *{roles}" th:value="${r}" th:text="${r}"></option>
+            </select><br>
+    <input type="submit" value="Add Contact">
+</form>
+
+<footer th:insert="fragments.html::footer"></footer>
+
+</body>
+</html>

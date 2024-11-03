@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <script th:src="@{/js/script.js}"></script>
+    <style th:insert="fragments.html::style"></style></head>
+<body>
+
+<header th:insert="fragments.html::header"></header>
+
+<h1>Register Here!</h1>
+
+<div id="error" class="error"></div>
+
+<form name="form" action="#" th:action="@{/register}" method="post" onsubmit="return verify()">
+    Email: <input type="email" name="username"><br>
+    Password: <input type="password" name="password"><br>
+    Verify Password: <input type="password" name="verifyPassword"><br>
+    Roles: <input type="checkbox" name="admin" value="1"> Admin
+    <input type="checkbox" name="member" value="2"> Member
+    <input type="checkbox" name="guest" value="3"> Guest
+    <input type="submit" value="Add User">
+</form>
+
+<footer th:insert="fragments.html::footer"></footer>
+
+</body>
+</html>

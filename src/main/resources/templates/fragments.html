@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fragment</title>
+    <style th:fragment="style">
+        .tableData:nth-child(even) {
+            background-color: gray;
+        }
+        .tableData:nth-child(odd) {
+            background-color: white;
+        }
+        .tableHeaders {
+            background-color: lightslategray;
+            font-size: medium;
+        }
+        body {
+            background-color: lightgray;
+            padding: 10px;
+            margin: 10px auto;
+            font-family: Arial;
+            font-size: 20px;
+            text-align: center;
+        }
+        table, th {
+            margin: 10px auto;
+            text-align: center;
+            padding: 5px;
+            border: solid black 2px;
+        }
+        td {
+            margin: 10px auto;
+            text-align: center;
+            padding: 5px;
+        }
+        .navigation, footer {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .login {
+            display: flex;
+            justify-content: left;
+        }
+        footer {
+            position: absolute;
+            bottom: 0px;
+            width: 99%;
+        }
+    </style>
+</head>
+<body>
+
+<header th:fragment="header">
+    <div class="login">
+        <a id="logout" sec:authorize="isAuthenticated()" href="/logout"><input type="button" value="Logout"></a>
+        <a id="login" sec:authorize="!isAuthenticated()" href="/login"><input type="button" value="Login"></a>
+    </div>
+    <div class="navigation">
+        <a href="/">Home Page</a>
+        <a href="/secure/addContact">Add Contact</a>
+        <a href="/secure/listContacts">List Contacts</a>
+        <a href="/register">Register User</a>
+    </div>
+</header>
+
+<footer th:fragment="footer">
+    <p>Copyright &#169 Karan Boparai. All Rights Reserved</p>
+</footer>
+
+</body>
+</html>

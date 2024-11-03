@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <script th:src="@{/js/script.js}"></script>
+    <style th:insert="fragments.html::style"></style>
+</head>
+<body>
+<header th:insert="fragments.html::header"></header>
+
+<h1>Welcome to the Home Page</h1>
+<p>Navigate to one of the pages using the navigation buttons above</p>
+
+<footer th:insert="fragments.html::footer"></footer>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Contacts</title>
+    <script th:src="@{/js/script.js}"></script>
+    <style th:insert="fragments.html::style"></style>
+</head>
+<body>
+
+<header th:insert="fragments.html::header"></header>
+
+<h1>Contact List</h1>
+
+<table>
+    <tr class="tableHeader" th:if="${contactList != null AND contactList != ''}">
+        <th>Name</th>
+        <th>Phone Number</th>
+        <th>Address</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    <tr class="tableData" th:each="c : ${contactList}">
+        <td th:text="${c.name}">Name</td>
+        <td th:text="${c.phone}">Phone Number</td>
+        <td th:text="${c.address}">Address</td>
+        <td th:text="${c.email}">Email</td>
+        <td th:text="${c.role}">Role</td>
+        <td><a th:href="@{/secure/editContact/} + ${c.id}">Edit</a></td>
+        <td><a th:href="@{/secure/deleteContact/} + ${c.id}">Delete</a></td>
+    </tr>
+</table>
+
+<div th:if="${contact.name != null AND contact.name != ''}">
+    <form th:object="${contact}" method="post" action="#" th:action="@{/secure/editContact}">
+        <input type="hidden" th:field="*{id}"><br>
+        Name: <input type="text" th:field="*{name}" required><br>
+        Phone Number: <input type="tel" th:field="*{phone}" required pattern="[0-9]{10}"><br>
+        Address: <input type="text" th:field="*{address}" required><br>
+        Email: <input type="email" th:field="*{email}" required><br>
+        Role:   <select th:field="*{role}" required>
+                    <option th:each="r : *{roles}" th:value="${r}" th:text="${r}"></option>
+                </select><br>
+        <input type="submit" value="Edit Contact">
+    </form>
+</div>
+
+<footer th:insert="fragments.html::footer"></footer>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+.tableData:nth-child(even) {
+    background-color: gray;
+}
+.tableData:nth-child(odd) {
+    background-color: white;
+}
+.tableHeaders {
+    background-color: lightslategray;
+    font-size: medium;
+}
+body {
+    background-color: lightgray;
+    padding: 10px;
+    margin: 10px auto;
+    font-family: Arial;
+    font-size: 20px;
+    text-align: center;
+}
+table, th {
+    margin: 10px auto;
+    text-align: center;
+    padding: 5px;
+    border: solid black 2px;
+}
+td {
+    margin: 10px auto;
+    text-align: center;
+    padding: 5px;
+}
+.navigation, footer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.login {
+    display: flex;
+    justify-content: left;
+}

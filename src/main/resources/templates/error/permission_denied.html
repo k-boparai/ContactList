@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <script th:src="@{/js/script.js}"></script>
+    <style th:insert="fragments.html::style"></style></head>
+<body>
+
+<header th:insert="fragments.html::header"></header>
+
+<h1>Access Denied</h1>
+
+<p><a th:href="@{/}">Back to Home Page</a></p>
+
+<footer th:insert="fragments.html::footer"></footer>
+
+</body>
+</html>
